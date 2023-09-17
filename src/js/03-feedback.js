@@ -17,6 +17,14 @@ function storageFormData(event) {
 
 function onFormSubmit(event) {
   event.preventDefault();
+
+  let { email, message } = form.elements;
+
+  if (email.value.trim() === '' || message.value.trim() === '') {
+    alert('All fields must be filled in!');
+    return;
+  }
+
   console.log(formData);
   event.currentTarget.reset();
   localStorage.removeItem(LOCAL_KEY);
